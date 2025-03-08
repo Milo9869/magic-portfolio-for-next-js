@@ -1,15 +1,30 @@
 import { InlineCode } from "@/once-ui/components";
+import { GoRocket } from "react-icons/go";
+import { SiSolidity, SiHardhat, SiChainlink, SiOpenzeppelin } from 'react-icons/si';
+import { LuHardHat } from "react-icons/lu";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa"; // Mieux : utiliser les icones de react-icons
+import { MdEmail } from "react-icons/md";
+
 
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: "Milo",
+  lastName: "Sottilini",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  role: "Web3 Blockchain Developer",
+  avatar: "/images/milo.png", // Assure-toi que ce chemin est correct
+  location: "America/Sao_Paulo", //  IANA time zone
+  languages: ["English", "French", "Spanish", "Portuguese"], // optional
+  subline: (
+    <>
+      Building decentralized solutions at the intersection of fitness and finance.
+      <br />
+      <span className="inline-flex items-center gap-2 mt-3 text-sm bg-gray-800 px-3 py-1 rounded-full">
+        <GoRocket className="w-4 h-4" /> Open to Web3 Opportunities
+      </span>
+    </>
+  ),
 };
 
 const newsletter = {
@@ -18,33 +33,32 @@ const newsletter = {
   description: (
     <>
       I occasionally write about design, technology, and share thoughts on the intersection of
-      creativity and engineering.
+      creativity and engineering.  (J'ai gardé la description de Selene, elle est bien)
     </>
   ),
 };
 
 const social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
+  // Utilisation de react-icons pour une meilleure cohérence
   {
     name: "GitHub",
-    icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    icon: FaGithub, // Utilisation de l'icône FaGithub
+    link: "https://github.com/Milo9869/",
   },
   {
     name: "LinkedIn",
-    icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    icon: FaLinkedin, // Utilisation de l'icône FaLinkedin
+    link: "https://www.linkedin.com/in/milo-sottilini-47219823b/",
   },
   {
     name: "X",
-    icon: "x",
-    link: "",
+    icon: FaTwitter, // Utilisation de l'icône FaTwitter
+    link: "", //  À compléter si tu as un compte X
   },
   {
     name: "Email",
-    icon: "email",
-    link: "mailto:example@gmail.com",
+    icon: MdEmail, // Utilisation de l'icône MdEmail (plus cohérent avec react-icons)
+    link: "mailto:milo.sottilini@gmail.com",
   },
 ];
 
@@ -52,19 +66,23 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Design engineer and builder</>,
+  headline: <>Web3 Developer</>,
   subline: (
     <>
-      I'm Selene, a design engineer at <InlineCode>FLY</InlineCode>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm Milo, an entrepreneur web3 developer, where I try to apply the web3 into the real-world.
+      <br /> I build an application on my own, a solution end-to-end.
     </>
   ),
 };
 
 const about = {
   label: "About",
-  title: "About me",
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  title: "Technical Profile", // Gardé le titre de Milo
+  description: `
+  Full-stack developer with 2+ years of experience building web applications and smart contracts.
+  Specialized in TypeScript ecosystems with strong focus on code quality and system architecture.
+  Currently seeking remote opportunities in blockchain development.
+`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -74,17 +92,19 @@ const about = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.com", //  À compléter si tu as un lien Calendly
   },
   intro: {
     display: true,
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
-      </>
+      Building decentralized solutions at the intersection of fitness and finance.
+      <br />
+      <span className="inline-flex items-center gap-2 mt-3 text-sm bg-gray-800 px-3 py-1 rounded-full">
+        <GoRocket className="w-4 h-4" /> Open to Web3 Opportunities
+      </span>
+    </>
     ),
   },
   work: {
@@ -92,18 +112,54 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Stealth Blockchain Startup",
+        timeframe: "2024 - Present",
+        role: "Founder & Lead Developer",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Designed tokenomics model combining <InlineCode>ERC-20</InlineCode> utility tokens with
+            <InlineCode>ERC-1155</InlineCode> NFTs for gamified mechanics
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Implemented Merkle-proof claim system handling {">"}50k daily transactions using
+            <InlineCode>@openzeppelin/merkle-tree</InlineCode>
           </>,
+          <>
+            Architected hybrid infrastructure with <InlineCode>IPFS</InlineCode> for decentralized storage
+            and <InlineCode>Supabase</InlineCode> for real-time analytics
+          </>
+        ],
+        techStack: [
+          "Next.js 14",
+          "Solidity 0.8",
+          "The Graph Protocol",
+          "Chainlink Automation"
+        ],
+      },
+      {
+        company: "BMC Software",
+        timeframe: "2023 - Present",
+        role: "Software Consultant",
+        achievements: [
+          <>
+           <strong className="achievement-title">Client Needs & Solution Design: </strong>
+           Analyze client requirements and design tailored solutions using BMC tools, aligning technical capabilities
+           with business goals—skills I leverage to create user-focused blockchain applications.
+  </>,
+          <>
+           <strong className="achievement-title">Implementation & Integration: </strong>
+            Deploy and integrate BMC software (e.g., BMC Helix, Control-M) into diverse systems,
+            a process akin to building and connecting blockchain smart contracts with front-end and back-end stacks.
+          </>,
+          <>
+          <strong className="achievement-title">Technical Expertise: </strong>
+          Apply knowledge of cloud platforms, automation, and scripting (e.g., Python) to optimize solutions—expertise
+          I adapt to develop secure, scalable blockchain systems using tools like Solidity and Node.js.
+        </>,
+        <>
+        <strong className="achievement-title">Problem-Solving & Optimization: </strong>
+        Troubleshoot issues and enhance performance.
+        </>
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
@@ -115,22 +171,6 @@ const about = {
           },
         ],
       },
-      {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
-        achievements: [
-          <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
-          </>,
-        ],
-        images: [],
-      },
     ],
   },
   studies: {
@@ -138,12 +178,16 @@ const about = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "EAE Business School - Madrid",
+        description: <>Master in Data Science for Finance.</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "University of Lyon 2",
+        description: <>Bachelor of Economics.</>,
+      },
+      {
+        name: "University of Lyon 2",
+        description: <>Bachelor of Political Sciences & Bachelor of Sociology.</>,
       },
     ],
   },
@@ -152,8 +196,24 @@ const about = {
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
+        title: "Web3 Stack",
+        description: (
+          <>
+            <div className="grid grid-cols-2 gap-2 mb-3">
+              <SiSolidity className="w-4 h-4" />
+              <LuHardHat className="w-4 h-4" />
+              <SiOpenzeppelin className="w-4 h-4" />
+              <SiChainlink className="w-4 h-4" />
+            </div>
+            Specialized in DeFi primitives development and gas optimization techniques
+          </>
+        ),
+        images: [/*...*/] //  Tu peux ajouter des images ici si tu veux
+      },
+      {
+        title: "Blockchain development",
+        description: <>I'm proficient in Solidity and have experience developing and deploying smart contracts for various
+         use cases, including token creation, decentralized finance (DeFi) mechanisms, and NFT marketplaces.</>,
         // optional: leave the array empty if you don't want to display images
         images: [
           {
@@ -171,8 +231,9 @@ const about = {
         ],
       },
       {
-        title: "Next.js",
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
+        title: "Frontend development",
+        description: <>I'm skilled in React and have experience building complex and interactive user interfaces
+        with a focus on UX and performance.</>,
         // optional: leave the array empty if you don't want to display images
         images: [
           {
@@ -183,6 +244,67 @@ const about = {
           },
         ],
       },
+      {
+        title: "Backend development",
+        description: <>I have experience designing and implementing robust and scalable backend systems using Node.js
+        and related frameworks.</>,
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/projects/project-01/cover-04.jpg",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "DataBase Management",
+        description: <>I'm proficient in PostgreSQL and have experience with data modeling, schema design,
+        and database migrations.</>,
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/projects/project-01/cover-04.jpg",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "Testing and Quality Assurance",
+        description: <>I'm a strong advocate for testing and have experience writing unit tests, integration tests,
+        and end-to-end tests to ensure the quality and reliability of my code.</>,
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/projects/project-01/cover-04.jpg",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "DevOps Infrastructure",
+        description: <>I have experience with Docker for containerization, CI/CD pipelines for automation,
+        and cloud platforms for deployment and scaling.</>,
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/projects/project-01/cover-04.jpg",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+        {
+          title: "Next.js",
+          description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
+        images: [],
+        },
     ],
   },
 };

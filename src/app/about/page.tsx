@@ -94,7 +94,7 @@ export default function About() {
       {about.tableOfContent.display && (
         <Column
           left="0"
-          style={{ top: "50%", transform: "translateY(-50%)" }}
+          style={{ top: "61%", transform: "translateY(-50%)" }}
           position="fixed"
           paddingLeft="24"
           gap="32"
@@ -229,17 +229,17 @@ export default function About() {
                       {experience.role}
                     </Text>
                     <Column as="ul" gap="16">
-                      {experience.achievements.map((achievement: JSX.Element, index: number) => (
+                      {experience.achievements?.map((achievement: JSX.Element, index: number) => (
                         <Text
                           as="li"
                           variant="body-default-m"
-                          key={`${experience.company}-${index}`}
+                          key={`achievement-${index}`}
                         >
                           {achievement}
                         </Text>
                       ))}
                     </Column>
-                    {experience.images.length > 0 && (
+                    {experience.images && experience.images.length > 0 && (
                       <Flex fillWidth paddingTop="m" paddingLeft="40" wrap>
                         {experience.images.map((image, index) => (
                           <Flex

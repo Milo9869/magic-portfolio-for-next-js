@@ -67,3 +67,10 @@ a:not(.button) {
 ::-webkit-scrollbar-corner {
     background-color: var(--static-transparent);
 }
+
+/* ACHIEVEMENT TITLE */
+.achievement-title {
+    font-weight: 800; /* Gras plus prononcé */
+    font-size: 1.15em; /* Légèrement plus grand */
+    color: var(--brand-on-background-strong); /* Couleur de ma marque */
+  }
